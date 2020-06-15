@@ -1,0 +1,137 @@
+.video-player{
+    position: relative;
+    display: inline-block;
+}
+
+.video-player:hover .controls{
+    opacity: 0.9;
+}
+
+.controls{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba (200, 50, 50, 0.8);
+    display: flex;
+    align-items: center; /* centra verticalmente a los items hijos */
+    justify-content: center; /* centra a los hijos horizontalmente */
+    flex: 0 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    opacity: 0;
+    transition: all 0.2s;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.controls .top{
+    position: absolute;
+    top:1em;
+    width: 95%;
+    text-align: right;
+}
+
+.controls .top [type=range]{
+    transform: rotate(270deg);
+    margin-top: 40px;
+    margin-right: -28px;
+    -webkit-appearance: none;
+    background-color: white;
+    height: 5px;
+    width: 80px;
+    box-shadow: none;
+    border-radius: 5px;
+    outline: 5px;
+}
+
+.controls .top .toggleSlide.active{
+    height: 200px;
+}
+
+.controls .top [type=range]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: rgb(233, 85, 85);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    opacity: 0;
+    transition: 0.2s;
+}
+
+.controls .top .prueba:hover [type=range]::-webkit-slider-thumb{
+    opacity: 1;
+}
+
+.controls .top .speed span{
+    display: block;
+    font-size: 12px;
+    text-align: center;
+    background-color: black;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+    border-radius: 3px;
+    margin-top: 2px;
+    color: white;
+}
+
+.controls .bottom{
+    position: absolute;
+    bottom: 1em;
+    width: 95%;
+}
+
+.controls .bottom .progress{
+    height: 5px;
+    border-radius: 8px;
+    position: relative;
+    z-index: 1000;
+    background-color: #000;
+}
+
+.controls .bottom .progress .bar{
+    height: 100%;
+    width: 0%;
+    border-radius: 8px;
+    background-color: #00e676;
+}
+
+.controls .top .toggleSlide{
+    transition: height 0.3s;
+    height: 25px;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.pull-right{
+    float: right;
+}
+
+.controls .bottom .bar-controls{
+    color: rgba(255, 255, 255,1);
+    margin-bottom: 3px;
+}
+
+.controls .bottom .bar-controls i{
+    margin-top: -3px;
+    margin-left: 0.5em;
+}
+/* Rules for sizing the icon. */ 
+.material-icons.md-18 { font-size: 18px; } 
+.material-icons.md-24 { font-size: 24px; } 
+.material-icons.md-36 { font-size: 36px; } 
+.material-icons.md-48 { font-size: 48px; }
+.material-icons.md-96 { font-size: 96px; }
+
+/* Rules for using icons as black on a light background. */ 
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); } 
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */ 
+.material-icons.md-light { color: rgba(255, 255, 255, 1); } 
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
