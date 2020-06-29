@@ -1,6 +1,14 @@
 .video-player{
-    position: relative;
+    position: absolute;
     display: inline-block;
+    display: flex;
+    
+}
+
+.video{
+    border-radius: 10px;
+    border: solid;
+    box-shadow: 10px 5px 5px rgba(95, 95, 95, 0.863);
 }
 
 .video-player:hover .controls{

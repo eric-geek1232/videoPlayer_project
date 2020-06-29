@@ -22,9 +22,15 @@ class Video{
         this.showSpeed_btn.addEventListener('click', ()=> this.toggleSpeed());
         this.volumenRange.addEventListener('input', ()=> this.controlVolume());
         this.videoElement.addEventListener('timeupdate', ()=> this.updateProgress());
+        this.setFullDuration();
         this.videoElement.addEventListener('durationchange', ()=> this.setFullDuration());
         this.fullScreen_btn.addEventListener('click', ()=> this.setFullScreen());
-        this.progressConteinerBar.addEventListener('click', (ev)=> this.setDuration(ev))
+        this.progressConteinerBar.addEventListener('click', (ev)=> this.setDuration(ev));
+        document.addEventListener('keydown', (ev)=>{
+            if(ev.keyCode == 32) this.playPause(); //37-40 77M 32p
+            if(ev.keyCode == 77) this.muteVolume();
+            this.setKeyTime(ev.keyCode);
+        });
         
         this.playBackRate_btns.forEach((el)=>{
             el.addEventListener('click', ()=> this.setPlayBackRate(el));
@@ -39,6 +45,15 @@ class Video{
 
         let time = this.videoElement.duration * percentage;
         this.videoElement.currentTime = time;
+    }
+
+    setKeyTime(keyCode){
+        if(keyCode == 37){
+            this.videoElement.currentTime -= 5; 
+        }
+        if(keyCode == 39){
+            this.videoElement.currentTime += 5; 
+        }
     }
 
     playPause(){
@@ -69,6 +84,19 @@ class Video{
             this.showVolume_btn.innerHTML = "volume_up";
         }
         this.videoElement.volume = this.volumenRange.value;
+    }
+
+    muteVolume(){
+        if(this.videoElement.volume == 0){
+            this.volumenRange.value = 1;
+            this.videoElement.volume = this.volumenRange.value; 
+            this.showVolume_btn.innerHTML = 'volume_up';
+            this.volumenRange.value = 1;
+        } else{
+            this.volumenRange.value = 0;
+            this.videoElement.volume = this.volumenRange.value;
+            this.showVolume_btn.innerHTML = 'volume_mute';
+        }
     }
 
     updateProgress(){
