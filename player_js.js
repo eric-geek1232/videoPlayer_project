@@ -3,6 +3,8 @@ class Video{
         this.selector = selector;
         this.playerElement = document.querySelector(selector);
         this.videoElement = document.querySelector(selector + " video");
+        this.counter = 0;
+        this.playList = 1;
 
         this.bindEvents();
     }
@@ -16,6 +18,7 @@ class Video{
         this.fullScreen_btn = document.querySelector(this.selector + " .set-full-screen");
         this.showSpeed_btn = document.querySelector(this.selector + " .show-speed");
         this.playBackRate_btns = document.querySelectorAll(this.selector + " .playBackRate");
+        this.toggleAutoPlay = document.getElementById("checkbox2");
 
         this.playPause_btn.addEventListener('click', ()=> this.playPause());
         this.showVolume_btn.addEventListener('click', ()=> this.toggleVolume());
@@ -26,6 +29,7 @@ class Video{
         this.videoElement.addEventListener('durationchange', ()=> this.setFullDuration());
         this.fullScreen_btn.addEventListener('click', ()=> this.setFullScreen());
         this.progressConteinerBar.addEventListener('click', (ev)=> this.setDuration(ev));
+        //this.toggleAutoPlay.addEventListener('change', ()=> this.autoPlay());
         document.addEventListener('keydown', (ev)=>{
             if(ev.keyCode == 32) this.playPause(); //37-40 77M 32p
             if(ev.keyCode == 77) this.muteVolume();
@@ -108,6 +112,7 @@ class Video{
         let percentage = Math.floor((currentTime * 100) / fullTime);
 
         this.progressBar.style.width = percentage+"%";
+        this.toggleRestart(currentTime, fullTime);
     }
 
     setFullDuration(){
@@ -167,5 +172,26 @@ class Video{
                x : pos.x - offset.left,
                y : pos.y - offset.top,
         };
+   }
+
+   toggleRestart(currentTime, fullDuration){
+       if(currentTime == fullDuration && this.toggleAutoPlay.checked == true){
+           this.counter++;
+           if(this.counter <= this.playList){
+            this.videoElement.src = "./video2.mp4";
+            this.videoElement.load();
+            this.videoElement.play();
+           }else{
+            this.playPause_btn.innerHTML = "replay";
+            this.videoElement.currentTime = 0;
+           }
+       }
+    
+      //console.log(this.toggleAutoPlay.checked);
+      if(currentTime == fullDuration && this.toggleAutoPlay.checked == false){
+        this.playPause_btn.innerHTML = "replay";
+        this.videoElement.currentTime = 0;
+       }
+       
    }
 }
