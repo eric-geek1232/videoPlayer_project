@@ -19,6 +19,8 @@ class Video{
         this.showSpeed_btn = document.querySelector(this.selector + " .show-speed");
         this.playBackRate_btns = document.querySelectorAll(this.selector + " .playBackRate");
         this.toggleAutoPlay = document.getElementById("checkbox2");
+        this.video1 = document.getElementById('video1');
+        this.video2 = document.getElementById('video2');
 
         this.playPause_btn.addEventListener('click', ()=> this.playPause());
         this.showVolume_btn.addEventListener('click', ()=> this.toggleVolume());
@@ -29,6 +31,8 @@ class Video{
         this.videoElement.addEventListener('durationchange', ()=> this.setFullDuration());
         this.fullScreen_btn.addEventListener('click', ()=> this.setFullScreen());
         this.progressConteinerBar.addEventListener('click', (ev)=> this.setDuration(ev));
+        this.video1.addEventListener('click', ()=>this.lastVideo());
+        this.video2.addEventListener('click', ()=>this.nextVideo());
         //this.toggleAutoPlay.addEventListener('change', ()=> this.autoPlay());
         document.addEventListener('keydown', (ev)=>{
             if(ev.keyCode == 32) this.playPause(); //37-40 77M 32p
@@ -178,9 +182,7 @@ class Video{
        if(currentTime == fullDuration && this.toggleAutoPlay.checked == true){
            this.counter++;
            if(this.counter <= this.playList){
-            this.videoElement.src = "./video2.mp4";
-            this.videoElement.load();
-            this.videoElement.play();
+            this.nextVideo();
            }else{
             this.playPause_btn.innerHTML = "replay";
             this.videoElement.currentTime = 0;
@@ -193,5 +195,19 @@ class Video{
         this.videoElement.currentTime = 0;
        }
        
+   }
+
+   nextVideo(){
+    this.videoElement.src = "./video2.mp4";
+    this.videoElement.load();
+    this.videoElement.play();
+    this.counter =1;
+   }
+
+   lastVideo(){
+    this.videoElement.src = "./hola.mp4";
+    this.videoElement.load();
+    this.videoElement.play();
+    this.counter =0;
    }
 }

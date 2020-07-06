@@ -9,55 +9,74 @@
     <link rel="stylesheet" href="./player_css.css">
 </head>
 <body>
-    <div class="centrar">
-        <div class="video-player">
-            <video src="./hola.mp4" width="800" class="video"></video>
-    
-            <div class="controls">
-                <div class="top">
-                    <div class="volume toggleSlide">
-                        <i class="material-icons md-light md-24 show-volume pointer">volume_up</i>
-                        <div class="prueba">
-                            <input type="range" id="volume-range" value="1" max="1" min="0" step="0.1">
+    <div class="container-grid">
+        <div class="pruebe">
+            <div class="video-player" >
+                <video src="./hola.mp4" width="850" height="485" class="video"></video>
+                <div class="controls">
+                    <div class="top">
+                        <div class="volume toggleSlide">
+                            <i class="material-icons md-light md-24 show-volume pointer">volume_up</i>
+                            <div class="prueba">
+                                <input type="range" id="volume-range" value="1" max="1" min="0" step="0.1">
+                            </div>
+                        </div>
+        
+                        <div class="speed toggleSlide">
+                            <i class="material-icons md-light md-24 pointer show-speed">settings</i>
+                            <div>
+                                <span class="playBackRate pointer" data-value="0.5"><p>0.5x</p></span>
+                                <span class="playBackRate pointer" data-value="0.75"><p>0.75x</p></span>
+                                <span class="playBackRate pointer" data-value="1.0"><p>Normal</p></span>
+                                <span class="playBackRate pointer" data-value="1.25"><p>1.25x</p></span>
+                                <span class="playBackRate pointer" data-value="1.5"><p>1.5x</p></span>
+                                <span class="playBackRate pointer" data-value="2.0"><p>2x</p></span>
+                            </div>
                         </div>
                     </div>
-    
-                    <div class="speed toggleSlide">
-                        <i class="material-icons md-light md-24 pointer show-speed">settings</i>
-                        <div>
-                            <span class="playBackRate pointer" data-value="0.5"><p>0.5x</p></span>
-                            <span class="playBackRate pointer" data-value="0.75"><p>0.75x</p></span>
-                            <span class="playBackRate pointer" data-value="1.0"><p>Normal</p></span>
-                            <span class="playBackRate pointer" data-value="1.25"><p>1.25x</p></span>
-                            <span class="playBackRate pointer" data-value="1.5"><p>1.5x</p></span>
-                            <span class="playBackRate pointer" data-value="2.0"><p>2x</p></span>
+                    <div class="center control-design">
+                        <i class="material-icons md-68 md-light pointer play-pause"> play_arrow</i>
+                    </div>
+        
+                    <div class="bottom">
+                        <div class="bar-controls">
+                            <span class="current-duration">0:00</span>
+                            <span class="pull-right">
+                                <i class="material-icons md-light md-24 set-full-screen pointer control-design">fullscreen</i>
+                            </span>
+                            <span class="pull-right full-duration">0:00</span>
                         </div>
-                    </div>
-                </div>
-                <div class="center">
-                    <i class="material-icons md-96 md-light pointer play-pause"> play_arrow</i>
-                </div>
-    
-                <div class="bottom">
-                    <div class="bar-controls">
-                        <span class="current-duration">0:00</span>
-                        <span class="pull-right">
-                            <i class="material-icons md-light md-24 set-full-screen pointer">fullscreen</i>
-                        </span>
-                        <span class="pull-right full-duration">0:00</span>
-                    </div>
-                    <div class="progress pointer">
-                        <div class="bar">
-    
+                        <div class="progress pointer">
+                            <div class="bar">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="toggleButton">
-        <span>REPRODUCCIÓN AUTOMÁTICA</span>
-        <input type="checkbox" id="checkbox2"></input>
+
+        <div class="central pruebe">
+            <div class="toggleButton">
+                <table>
+                    <tr>
+                        <td>
+                            <span id="tagautoplay">REPRODUCCIÓN AUTOMÁTICA</span>
+                        </td>
+                        <td>
+                            <input type="checkbox" id="checkbox2"></input>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="play-list" id="video1">
+                <p class="tags-list">Video 1</p>
+            </div>
+
+            <div class="video2" id="video2">
+                <p class="tags-list">Video 2</p>
+            </div>
+        </div>
     </div>
     <script src="./player_js.js"></script>
     <script>

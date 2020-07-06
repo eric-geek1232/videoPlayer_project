@@ -2,32 +2,61 @@ body{
     background-image: url(/img/plan.png);
 }
 
+
+.container-grid{
+    display: grid;
+    grid-template-columns: 60% repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    height: 300px;
+    width: 100vw;
+}
+
 .video-player{
-    position: absolute;
+    position: relative;
     display: inline-block;
     display: flex;
-    width: 80%;
+    width: 100%;
 }
 
 .centrar{
-    width: 95%;
-    margin: auto;
-    padding-top: 50px;
+    position: relative;
+    margin-top: 5%;
+    margin-left: 2%;
+    margin-right: 2%;
+    display: block;
+}
+
+.central{
+    position: relative;
+    width: auto;
+    display: block;
 }
 
 .video{
+    height: auto;
     border-radius: 10px;
     border: solid rgba(255, 255, 255, 0.87) 1px;
     box-shadow: 10px 5px 5px rgba(95, 95, 95, 0.863);
-    width: 80%;
+    background-color: black;
+    width: 100%;
+}
+
+.control-design{
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;  
 }
 
 .toggleButton{
-    margin-left: 70%;
-    width: 28%;
-    height: 50px;
+    position: relative;
+    border-radius: 5px;
+    margin-right: 5%;
+    display: block;
+    font-size: 13px;
     background-color: blueviolet;
     border: dashed orange 4px;
+    margin-left: 5%;
+    width: 90%;
+    letter-spacing: 1px;
 }
 
 .video-player:hover .controls{
@@ -38,7 +67,7 @@ body{
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 80%;
+    width: 100%;
     height: 100%;
     background-color: rgba (200, 50, 50, 0.8);
     display: flex;
@@ -151,8 +180,7 @@ body{
 
 input[type="checkbox"]{
     position: relative;
-    margin-top: 15px;
-    margin-left: 15%;
+    margin-top: 8px;
     width: 40px;
     height: 20px;
     -webkit-appearance: none;
@@ -175,6 +203,7 @@ input[type="checkbox"]::before{
     border-radius: 20px;
     top: 0;
     left: 0;
+    cursor: pointer;
     background: #fff;
     transform: scale(1.1);
     box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
@@ -185,15 +214,18 @@ input:checked[type="checkbox"]:before{
     left: 25px;
 }
 
-span{
+#tagautoplay {
+    position: relative;
     font-size: 100%;
     color: rgba(255, 255, 255, 0.87);
+    margin-left: 15px;
+    margin-right: 180px;
 }
 /* Rules for sizing the icon. */ 
 .material-icons.md-18 { font-size: 18px; } 
 .material-icons.md-24 { font-size: 24px; } 
 .material-icons.md-36 { font-size: 36px; } 
-.material-icons.md-48 { font-size: 48px; }
+.material-icons.md-68 { font-size: 68px; }
 .material-icons.md-96 { font-size: 96px; }
 
 /* Rules for using icons as black on a light background. */ 
@@ -203,3 +235,63 @@ span{
 /* Rules for using icons as white on a dark background. */ 
 .material-icons.md-light { color: rgba(255, 255, 255, 1); } 
 .material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
+@media screen and (min-width: 761px){
+
+    .centrar{
+        display: inline-block;
+    }
+
+    .toggleButton{
+        display: inline-block;
+    }
+
+    .central{
+        display: inline-block;
+    }
+
+    .pruebe{
+        display: inline-block;
+    }
+    
+}
+
+.pruebe{
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+div.play-list{
+    background-color: lightskyblue;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 40px;
+    border: solid 4px blueviolet;
+    border-radius: 12px;
+}
+
+div.video2{
+    background-color: lightskyblue;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5px;
+    border: solid 4px blueviolet;
+    border-radius: 12px;
+}
+
+div.play-list:hover, .video2:hover{
+    background-color: darkgrey;
+    cursor: pointer;
+}
+
+p.tags-list{
+    font-size: 25px;
+    margin-top: 4%;
+    margin-bottom: 7%;
+    margin-left: 10%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
